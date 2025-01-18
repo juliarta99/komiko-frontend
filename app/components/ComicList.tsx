@@ -10,7 +10,7 @@ interface Comic {
 
 const ComicList = ({comics} : {comics: Comic[]}) => {
     return (
-        <div className="grid grid-cols-8 gap-5 mt-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3 lg:gap-5 mt-3">
             {comics.map((comic, i) => (
                 <CardComic
                     key={i}
