@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ComicProps {
     title: string;
-    image: string;
+    imageSrc: string;
     category: string;
     chapter: string;
     rating: string;
 }
 
-const CardComic: React.FC<ComicProps> = ({title, image, category, chapter, rating}) => {
+const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, rating}) => {
     const categoryClass =
         category === "Manhwa"
             ? "bg-blue-500"
@@ -23,11 +23,11 @@ const CardComic: React.FC<ComicProps> = ({title, image, category, chapter, ratin
         <div className="w-full relative">
             <div className={`absolute py-1 px-2 text-xs rounded-md top-1 right-1 ${categoryClass}`}>{category}</div>
             <img 
-                src={image} 
+                src={imageSrc} 
                 alt={title} 
-                className="object-cover aspect-[11/15] bg-gray-50 rounded-md"    
+                className="object-cover aspect-[11/15] bg-gray-500 rounded-md"    
             />
-            <h3 className="text-base font-medium">{title}</h3>
+            <h3 className="text-xs mt-1 font-medium h-9">{title.length > 20 ? `${title.substring(0, 25)}...` : title}</h3>
             <p className="text-xs">{chapter}</p>
             <div className="flex items-center gap-1">
                 <FontAwesomeIcon className="w-3 mt-1 text-yellow-500" icon={faStar}/>

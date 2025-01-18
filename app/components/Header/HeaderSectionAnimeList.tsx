@@ -4,8 +4,8 @@ import TitleSection from "../TitleSection";
 
 interface HeaderProps {
     title: string;
-    nameButton: string;
-    linkButton: string;
+    nameButton?: string;
+    linkButton?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({title, nameButton, linkButton}) => {
@@ -14,9 +14,11 @@ const Header: React.FC<HeaderProps> = ({title, nameButton, linkButton}) => {
             <TitleSection
                 name={title}
             />
-            <Link href={linkButton}>
-                <Button name={nameButton} />
-            </Link>
+            {nameButton &&
+                <Link href={linkButton || ""}>
+                    <Button children={nameButton} />
+                </Link>
+            }
         </div>
     )
 }
