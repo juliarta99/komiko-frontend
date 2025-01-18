@@ -1,20 +1,59 @@
 import Link from "next/link";
 import SearchInput from "./SearchInput";
+import DropdownLink from "./DropdownLink";
 
 export default function Navbar() {
+    const optionsOrder = [
+        {
+            name: "Terpopuler",
+            link: "/comic/order/populer"
+        },
+        {
+            name: "On Going",
+            link: "/comic/order/ongoing"
+        },
+        {
+            name: "Rilisan Terbaru",
+            link: "/comic/order/update"
+        },
+        {
+            name: "Seri Baru",
+            link: "/comic/order/latest"
+        },
+    ]
+
+    const optionsCategory = [
+        {
+            name: "Manhwa",
+            link: "/category/manhwa"
+        },
+        {
+            name: "Manga",
+            link: "/category/manga"
+        },
+        {
+            name: "Manhua",
+            link: "/category/manhua"
+        },
+        {
+            name: "Comic",
+            link: "/category/comic"
+        },
+    ]
+
     return (
         <nav className="shadow-lg fixed w-full top-0 dark:bg-[#0a0a0a] bg-white z-[9999]">
             <div className="container mx-auto flex justify-between py-3 items-center">
                 <Link href={"/"} className="font-bold text-xl">Komiko</Link>
                 <ul className="flex gap-4">
                     <li>
-                        <Link className="hover:text-blue-300 duration-300" href={"/comic"}>Comic</Link>
+                        <Link className="hover:text-blue-300 duration-300" href={"/comic"}>Semua</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-blue-300 duration-300" href={""}>Genres</Link>
+                        <DropdownLink name="Berdasarkan" options={optionsOrder} />
                     </li>
                     <li>
-                        <Link className="hover:text-blue-300 duration-300" href={""}>Category</Link>
+                        <DropdownLink name="Kategori" options={optionsCategory} />
                     </li>
                 </ul>
                 <SearchInput />
