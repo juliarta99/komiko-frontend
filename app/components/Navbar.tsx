@@ -6,7 +6,7 @@ export default function Navbar() {
     const optionsOrder = [
         {
             name: "Terpopuler",
-            link: "/comic/order/populer"
+            link: "/comic/order/popular"
         },
         {
             name: "On Going",

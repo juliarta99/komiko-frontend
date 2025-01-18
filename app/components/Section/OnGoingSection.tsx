@@ -10,7 +10,7 @@ export default async function OnGoingSection() {
             <Header
                 title="Komik On Going"
                 nameButton="Lihat Semua"
-                linkButton="ds"
+                linkButton="/comic/order/ongoing"
             />
             <ComicList comics={comics.data.results.slice(0, 8)} />
         </section>

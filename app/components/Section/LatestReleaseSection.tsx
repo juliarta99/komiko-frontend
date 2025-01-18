@@ -10,7 +10,7 @@ export default async function LatestReleaseSection() {
             <Header
                 title="Rilisan Terbaru"
                 nameButton="Lihat Semua"
-                linkButton="ds"
+                linkButton="/comic/order/update"
             />
             <ComicList comics={comics.data.results.slice(0,8)} />
         </section>
