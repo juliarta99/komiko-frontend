@@ -8,9 +8,10 @@ interface ComicProps {
     category: string;
     chapter: string;
     rating: string;
+    slug: string;
 }
 
-const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, rating}) => {
+const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, rating, slug}) => {
     const categoryClass =
         category === "Manhwa"
             ? "bg-blue-500"
@@ -23,7 +24,7 @@ const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, ra
             : "hidden";
     
     return(
-        <Link href="" className="w-full relative block">
+        <Link href={`/comic/${slug}`} className="w-full relative block">
             <div className={`absolute py-1 px-2 text-xs rounded-md top-1 right-1 ${categoryClass}`}>{category}</div>
             <img 
                 src={imageSrc} 

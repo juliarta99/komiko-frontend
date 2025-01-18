@@ -6,6 +6,7 @@ interface Comic {
     category: "Manhwa" | "Manhua" | "Manga" | "Comic";
     chapter: string;
     rating: string;
+    slug: string;
 }
 
 const ComicList = ({comics} : {comics: Comic[]}) => {
@@ -19,6 +20,7 @@ const ComicList = ({comics} : {comics: Comic[]}) => {
                     chapter={comic.chapter}
                     rating={comic.rating}
                     category={comic.category}
+                    slug={comic.slug}
                 />
             ))}
         </div>

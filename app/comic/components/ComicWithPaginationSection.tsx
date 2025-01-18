@@ -21,8 +21,11 @@ export default async function ComicWithPaginationSection({ searchParams }: { sea
     return (
         <section className="py-5">
             <Header
-                title="Baca Komik Kesukaan Anda"
+                title={`${search ? "Komik dengan keyword '" + search + "'" : "Baca Komik Kesukaan Anda"}`}
             />
+            {comics.data.results.length === 0 &&
+                <div className="font-semibold uppercase mt-2">Tidak Ditemukan</div>
+            }
             <ComicList comics={comics.data.results} />
             {comics.data.pagination ? 
                 <div className="flex items-center gap-2 mt-5">
