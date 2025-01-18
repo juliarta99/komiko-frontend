@@ -18,7 +18,9 @@ const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, ra
             ? "bg-red-500"
             : category === "Manga"
             ? "bg-green-500"
-            : "bg-yellow-500";
+            : category === "Comic"
+            ? "bg-yellow-500"
+            : "hidden";
     
     return(
         <Link href="" className="w-full relative block">

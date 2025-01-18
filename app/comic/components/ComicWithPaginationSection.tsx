@@ -5,7 +5,7 @@ import Link from "next/link";
 import Button from "../../components/Button";
 
 export default async function ComicWithPaginationSection({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
-    const search = searchParams?.search;
+    const search = searchParams?.s;
     const page = searchParams?.page;
 
     const endpoint = search
@@ -24,14 +24,24 @@ export default async function ComicWithPaginationSection({ searchParams }: { sea
                 title="Baca Komik Kesukaan Anda"
             />
             <ComicList comics={comics.data.results} />
-            <div className="mt-5 flex justify-between">
-                <Link href={`${comics.data.prevPage}`}>
-                    <Button children="Prev" disabled={comics.data.prevPage ? false : true} />
-                </Link>
-                <Link href={`${comics.data.nextPage}`}>
-                    <Button children="Next" disabled={comics.data.nextPage ? false : true} />
-                </Link>
-            </div>
+            {comics.data.pagination ? 
+                <div className="flex items-center gap-2 mt-5">
+                    {comics.data.pagination?.map((pagination: {pageUrl: string, pageNumber: string}, i: number) => (
+                        <Link key={i} href={`${pagination.pageUrl}&page=${pagination.pageNumber}`}>
+                            <Button children={pagination.pageNumber} />
+                        </Link>
+                    ))}
+                </div>
+                :
+                <div className="mt-5 flex justify-between">
+                    <Link href={`${comics.data.prevPage}`}>
+                        <Button children="Prev" disabled={comics.data.prevPage ? false : true} />
+                    </Link>
+                    <Link href={`${comics.data.nextPage}`}>
+                        <Button children="Next" disabled={comics.data.nextPage ? false : true} />
+                    </Link>
+                </div>
+            }
         </section>
     )
 }

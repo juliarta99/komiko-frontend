@@ -5,29 +5,25 @@ import { getComicResponse } from "@/app/libs/api";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function ComicWithPaginationSection({ params, searchParams }: {params: { order: string }, searchParams?: { [key: string]: string | undefined } }) {
-    const {order} = params;
+export default async function ComicWithPaginationSection({ params, searchParams }: {params: { category: string }, searchParams?: { [key: string]: string | undefined } }) {
+    const {category} = params;
     const page = searchParams?.page;
 
-    const allowedOrders = ["popular", "latest", "update", "ongoing"];
-    if (!allowedOrders.includes(order)) {
+    const allowedCategorys = ["manhwa", "manhua", "comic", "manga"];
+    if (!allowedCategorys.includes(category)) {
         return notFound();
-    }
-    let filter = "order";
-    if(order == "ongoing") {
-        filter = "ongoing";
     }
 
     const endpoint = page
-        ? `/comic?${filter}=${order}&page=${page}`
-        : `/comic?${filter}=${order}`;
+        ? `/comic?type=${category}&page=${page}`
+        : `/comic?type=${category}`;
 
     const comics = await getComicResponse(endpoint);
 
     return (
         <section className="py-5">
             <Header
-                title={`Daftar Komik ${order.charAt(0).toUpperCase() + order.slice(1)}`}
+                title={`Daftar ${category.charAt(0).toUpperCase() + category.slice(1)}`}
             />
             <ComicList comics={comics.data.results} />
             <div className="mt-5 flex justify-between">

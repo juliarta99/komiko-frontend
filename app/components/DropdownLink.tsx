@@ -28,6 +28,7 @@ export default function DropdownLink({name, options} : {name: string, options: o
                         key={i}
                         href={option.link} 
                         className="py-2 px-3 hover:bg-blue-500 duration-200"
+                        onClick={() => setActive(false)}
                     >
                         {option.name}
                     </Link>
