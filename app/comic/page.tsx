@@ -10,16 +10,6 @@ interface Props{
     searchParams?: searchParamsType 
 }
 
-
-export async function getStaticProps() {
-    const searchParams = {};
-    return {
-        props: {
-            searchParams,
-        },
-    };
-}
-
 export default function ComicPage({ searchParams }: Props) {
 
     return (
