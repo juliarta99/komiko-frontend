@@ -18,10 +18,15 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
     const [filteredChapters, setFilteredChapters] = useState(chapters);
     
     const getChapters = useCallback((value: string) => {
-        const filtered = chapters.filter((chapter) =>
-            chapter.chapterNum.toLowerCase().includes(value.toLowerCase())
-        );
-        setFilteredChapters(filtered);
+        if(value) {
+            const filtered = chapters.filter((chapter) => {
+                const chapterNumberOnly = chapter.chapterNum.toLowerCase().replace(/chapter\s*/i, '').trim();
+                return chapterNumberOnly === value.toLocaleLowerCase();
+            });
+            setFilteredChapters(filtered);
+        } else {
+            setFilteredChapters(chapters);
+        }
     }, [chapters]);
 
     useEffect(() => {
