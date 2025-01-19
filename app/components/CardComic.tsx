@@ -31,7 +31,7 @@ const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, ra
                 alt={title} 
                 className="object-cover aspect-[11/15] w-full bg-gray-500 rounded-md"    
             />
-            <h3 className="text-xs mt-1 font-medium h-9">{title.length > 20 ? `${title.substring(0, 25)}...` : title}</h3>
+            <h3 className="text-xs mt-1 font-medium min-h-9">{title.length > 20 ? `${title.substring(0, 25)}...` : title}</h3>
             <p className="text-xs">{chapter}</p>
             <div className="flex items-center gap-1">
                 <FontAwesomeIcon className="w-3 text-yellow-500" icon={faStar}/>

@@ -8,12 +8,12 @@ const montserrat = Montserrat({
 
 const openGraph = {
     type: "website",
-    url: "https://example.com",
+    url: "https://komiko.invitizeme.com",
     title: "Komiko",
     description: "Website Baca Komik Bahasa Indonesia",
     siteName: "Komiko",
     images: [{
-      url: "https://example.com/og.png",
+      url: "/bg.webp",
     }],
 }
 
@@ -21,7 +21,12 @@ export const metadata: Metadata = {
   title: "Komiko",
   description: "Website Baca Komik Bahasa Indonesia",
   keywords: ["website komik", "komik bahasa indonesia", "web baca komik", "mahwa", "manhua", "website baca komik bahasa indonesia", "website baca manhwa", "manga", "baca komik", "web komik", "web komik manhwa"],
-  openGraph: openGraph
+  openGraph: openGraph,
+  icons: {
+    icon: "/logo_komiko.svg",
+    shortcut: "/logo_komiko.svg",
+    apple: "/logo_komiko.svg",
+  }
 };
 
 export default function RootLayout({
