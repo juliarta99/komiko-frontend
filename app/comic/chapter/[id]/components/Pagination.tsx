@@ -29,7 +29,7 @@ export default function Pagination({prevPage, nextPage, chapters} : PaginationPr
             >
                 <FontAwesomeIcon className="w-4 text-white" icon={active ? faEye: faEyeSlash}/>
             </Button>
-            <div className={`w-full ${active ? "fixed bottom-0 left-0 bg-slate-800 py-3" : ""}`}>
+            <div className={`w-full px-3 ${active ? "fixed bottom-0 left-0 bg-slate-800 py-3" : ""}`}>
                 <div className={`max-w-xl ${!active && "mt-5"} grid grid-cols-3 gap-x-10 gap-y-2 mx-auto`}>
                     <Link href={`${prevPage}`} className="block">
                         <Button className="w-full" disabled={prevPage ? false : true}>Prev</Button>
