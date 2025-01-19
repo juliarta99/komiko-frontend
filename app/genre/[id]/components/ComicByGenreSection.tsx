@@ -24,7 +24,9 @@ export default async function ComicByGenreSection({ params, searchParams }: {par
                 <div className="flex items-center gap-2 mt-5 flex-wrap">
                     {comics.data.pagination?.map((pagination: {pageUrl: string, pageNumber: string}, i: number) => (
                         <Link key={i} href={`?page=${pagination.pageNumber}`}>
-                            <Button children={pagination.pageNumber} />
+                            <Button>
+                                {pagination.pageNumber}
+                            </Button>
                         </Link>
                     ))}
                 </div>

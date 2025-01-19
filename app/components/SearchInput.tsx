@@ -23,10 +23,11 @@ export default function SearchInput() {
     return (
         <div>
             <Button 
-                children={<FontAwesomeIcon className="w-4 text-white" icon={faSearch}/>}
                 className="!bg-blue-500 !p-2 w-10 h-10 flex justify-center items-center lg:hidden"
                 onClick={() => {setActive(true)}}
-            />
+            >
+                <FontAwesomeIcon className="w-4 text-white" icon={faSearch}/>
+            </Button>
             <form onSubmit={(e) => {e.preventDefault(); handleSubmitButton()}} className={`${active ? "flex fixed top-0 left-0 bg-slate-800 w-full justify-center py-4" : "hidden"} lg:!static lg:!py-0 lg:flex lg:rounded-md`}>
                 <Input 
                     type="text"
@@ -38,17 +39,19 @@ export default function SearchInput() {
                     onChange={(e) => {setSearchValue(e.target.value)}}
                 />
                 <Button 
-                    children={<FontAwesomeIcon className="w-4 text-white" icon={faSearch}/>}
                     className="rounded-l-none rounded-r-md disabled:!bg-gray-500 !bg-blue-500"
                     disabled={searchValue.trim() === ""}
                     onClick={handleSubmitButton}
-                />
+                >
+                    <FontAwesomeIcon className="w-4 text-white" icon={faSearch}/>
+                </Button>
                 <Button 
                     type="button"
-                    children={<FontAwesomeIcon className="w-4 text-white" icon={faXmark}/>}
                     className="!bg-red-500 lg:hidden ml-2"
                     onClick={() => {setActive(false)}}
-                />
+                >
+                    <FontAwesomeIcon className="w-4 text-white" icon={faXmark}/>
+                </Button>
             </form>
         </div>
     )

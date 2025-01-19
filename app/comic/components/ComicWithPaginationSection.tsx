@@ -31,17 +31,19 @@ export default async function ComicWithPaginationSection({ searchParams }: { sea
                 <div className="flex items-center gap-2 mt-5">
                     {comics.data.pagination?.map((pagination: {pageUrl: string, pageNumber: string}, i: number) => (
                         <Link key={i} href={`${pagination.pageUrl}&page=${pagination.pageNumber}`}>
-                            <Button children={pagination.pageNumber} />
+                            <Button>
+                                {pagination.pageNumber}
+                            </Button>
                         </Link>
                     ))}
                 </div>
                 :
                 <div className="mt-5 flex justify-between">
                     <Link href={`${comics.data.prevPage}`}>
-                        <Button children="Prev" disabled={comics.data.prevPage ? false : true} />
+                        <Button disabled={comics.data.prevPage ? false : true}>Prev</Button>
                     </Link>
                     <Link href={`${comics.data.nextPage}`}>
-                        <Button children="Next" disabled={comics.data.nextPage ? false : true} />
+                        <Button disabled={comics.data.nextPage ? false : true}>Next</Button>
                     </Link>
                 </div>
             }
