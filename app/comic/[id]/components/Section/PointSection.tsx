@@ -1,4 +1,4 @@
-import { faBook, faBrush, faCalendar, faClockRotateLeft, faLayerGroup, faPenFancy } from "@fortawesome/free-solid-svg-icons";
+import { faBrush, faCalendar, faClockRotateLeft, faLayerGroup, faPenFancy } from "@fortawesome/free-solid-svg-icons";
 import PointDetail from "../PointDetail";
 import LinkButton from "../../../../components/LinkButton";
 
