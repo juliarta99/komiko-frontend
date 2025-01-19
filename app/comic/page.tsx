@@ -12,14 +12,16 @@ interface Props{
 export default function ComicPage({ searchParams }: Props) {
 
     return (
-        <BasicLayout>
-            <div className="container mx-auto min-h-screen py-16">
-                <ComicListLayout>
-                    <Suspense fallback={<ComicsSectionSkeleton count={12} />}>
-                        <ComicWithPaginationSection searchParams={searchParams} />
-                    </Suspense>
-                </ComicListLayout>
-            </div>
-        </BasicLayout>
+        <Suspense fallback={<p>Loading..</p>}>
+            <BasicLayout>
+                <div className="container mx-auto min-h-screen py-16">
+                    <ComicListLayout>
+                        <Suspense fallback={<ComicsSectionSkeleton count={12} />}>
+                            <ComicWithPaginationSection searchParams={searchParams} />
+                        </Suspense>
+                    </ComicListLayout>
+                </div>
+            </BasicLayout>
+        </Suspense>
     )
 }
