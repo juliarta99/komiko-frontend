@@ -1,5 +1,6 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
 
 interface ComicProps {
@@ -26,7 +27,7 @@ const CardComic: React.FC<ComicProps> = ({title, imageSrc, category, chapter, ra
     return(
         <Link href={`/comic/${slug}`} className="w-full relative block">
             <div className={`absolute py-1 px-2 text-xs rounded-md top-1 right-1 ${categoryClass}`}>{category}</div>
-            <img 
+            <Image 
                 src={imageSrc} 
                 alt={title} 
                 className="object-cover aspect-[11/15] w-full bg-gray-500 rounded-md"    

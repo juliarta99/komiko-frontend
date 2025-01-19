@@ -3,6 +3,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import PointSection from "./PointSection";
+import Image from "next/image";
 
 interface ChapterProps {
     slug: string,
@@ -51,7 +52,7 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                         <p>{rating}</p>
                     </div>
                 </div>
-                <img 
+                <Image 
                     src={imageSrc} 
                     alt={title}
                     className="object-cover aspect-[11/15] w-full max-w-[200px] bg-gray-500 rounded-md mx-auto" 

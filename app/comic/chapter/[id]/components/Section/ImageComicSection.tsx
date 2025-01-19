@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { useEffect } from "react"
 
 interface Chapter{
@@ -23,7 +24,7 @@ export default function ImageComicSection({images, chapter} : {images: string[],
     return(
         <div className="max-w-xl w-full mx-auto mt-5">
             {images?.map((val, i) => (
-                <img 
+                <Image 
                     key={i}
                     src={val} 
                     alt={chapter.title}

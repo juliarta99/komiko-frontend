@@ -5,7 +5,7 @@ import { getComicResponse } from "@/app/libs/api";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function ComicWithPaginationSection({ params, searchParams }: {params: { category: string }, searchParams?: { [key: string]: string | undefined } }) {
+export default async function ComicWithPaginationSection({ params, searchParams }: {params: { category: string }; searchParams?: { [key: string]: string | undefined }; }) {
     const {category} = params;
     const page = searchParams?.page;
 

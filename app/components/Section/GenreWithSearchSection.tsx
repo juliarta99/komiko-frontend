@@ -2,7 +2,7 @@
 
 import Input from "@/app/components/Input";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import TitleWithIcon from "../TitleWithIcon";
 import GenreList from "../GenreList";
 
@@ -15,16 +15,16 @@ export default function GenreWithSearchSection({genres} : {genres: Genre[]}) {
     const [searchValue, setSearchValue] = useState("");
     const [filteredGenres, setFilteredGenres] = useState(genres);
     
-    const getGenres = (value: string) => {
+    const getGenres = useCallback((value: string) => {
         const filtered = genres.filter((genre) =>
             genre.label.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredGenres(filtered);
-    };
+    }, [genres]);
     
     useEffect(() => {
         getGenres(searchValue);
-    }, [searchValue]);
+    }, [searchValue, getGenres]);
 
     return(
         <div className="p-5 rounded-lg bg-gray-900 h-max">
