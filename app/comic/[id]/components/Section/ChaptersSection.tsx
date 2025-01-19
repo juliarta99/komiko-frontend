@@ -13,7 +13,7 @@ interface ChapterProps {
     downloadLink: string
 }
 
-export default function ChaptersSection({chapters} : {chapters: ChapterProps[]}) {
+export default function ChaptersSection({ chapters } : {chapters: ChapterProps[]}) {
     const [searchValue, setSearchValue] = useState("");
     const [filteredChapters, setFilteredChapters] = useState(chapters);
     
