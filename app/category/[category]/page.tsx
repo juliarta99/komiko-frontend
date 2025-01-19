@@ -4,7 +4,12 @@ import ComicsSectionSkeleton from "@/app/components/Skeleton/Section/ComicsSecti
 import BasicLayout from "@/app/components/Layouts/BasicLayout";
 import ComicListLayout from "@/app/components/Layouts/ComicListLayout";
 
-export default function PageCategoryById({ params, searchParams }: { params: { category: string }, searchParams?: { [key: string]: string | undefined } }) {
+type PageProps =  { 
+    params: { category: string }; 
+    searchParams?: { [key: string]: string | undefined }; 
+}
+
+export default function PageCategoryById({ params, searchParams }: PageProps) {
 
     return (
         <BasicLayout>

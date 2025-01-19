@@ -4,7 +4,7 @@ import Input from "@/app/components/Input";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ChapterList from "../ChapterList";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ChapterProps {
     chapterSlug: string,
@@ -17,16 +17,16 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
     const [searchValue, setSearchValue] = useState("");
     const [filteredChapters, setFilteredChapters] = useState(chapters);
     
-    const getChapters = (value: string) => {
+    const getChapters = useCallback((value: string) => {
         const filtered = chapters.filter((chapter) =>
             chapter.chapterNum.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredChapters(filtered);
-    };
-    
+    }, [chapters]);
+
     useEffect(() => {
         getChapters(searchValue);
-    }, [searchValue]);
+    }, [searchValue, getChapters]);
 
     return(
         <div className="mt-8 p-5 rounded-lg bg-gray-900">
