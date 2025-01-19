@@ -55,7 +55,9 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                 <Image 
                     src={imageSrc} 
                     alt={title}
-                    className="object-cover aspect-[11/15] w-full max-w-[200px] bg-gray-500 rounded-md mx-auto" 
+                    width={200}
+                    height={0}
+                    className="object-cover !aspect-[11/15] !h-auto !w-full max-w-[200px] bg-gray-500 rounded-md mx-auto" 
                 />
                 <Button disabled={true} className="disabled:bg-white mt-2 w-full max-w-[200px] mx-auto flex flex-col items-center">
                     <p>Status</p>

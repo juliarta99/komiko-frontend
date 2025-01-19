@@ -16,7 +16,7 @@ function Search() {
 
     const handleSubmitButton = () => {
         if (searchValue.trim() !== "") {
-            router.push(`/comic?s=${encodeURIComponent(searchValue)}`);
+            router.push(`/comic?s=${searchValue}`);
         }
         setActive(false);
     }

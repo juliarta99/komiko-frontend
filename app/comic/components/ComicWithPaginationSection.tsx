@@ -9,18 +9,17 @@ export type searchParamsType = Promise<{[key: string]: string | undefined }>;
 interface Props{
     searchParams?: searchParamsType;
 }
+
 export default async function ComicWithPaginationSection({ searchParams }: Props) {
     const searchParamsObj = await searchParams;
-    const search = searchParamsObj?.s;
-    const page = searchParamsObj?.page;
+    const search = searchParamsObj?.s || "";
+    const page = searchParamsObj?.page || "1";
 
     const endpoint = search
-        ? page
+        ? page !== "1"
             ? `/search/${search}/page/${page}`
             : `/search/${search}`
-        : page
-        ? `/comic?page=${page}`
-        : `/comic`;
+        : `/comic?page=${page}`;
 
     const comics = await getComicResponse(endpoint);
 

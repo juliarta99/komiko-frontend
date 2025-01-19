@@ -17,7 +17,7 @@ export default function GenrePage({ params, searchParams }: Props) {
         <BasicLayout>
             <div className="container mx-auto min-h-screen py-16">
                 <ComicListLayout>
-                    <Suspense fallback={<ComicsSectionSkeleton count={16} />}>
+                    <Suspense fallback={<ComicsSectionSkeleton count={24} />}>
                         <ComicByGenreSection params={params} searchParams={searchParams} />
                     </Suspense>
                 </ComicListLayout>
