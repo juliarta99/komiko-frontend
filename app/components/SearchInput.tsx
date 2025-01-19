@@ -29,13 +29,13 @@ function Search() {
             >
                 <FontAwesomeIcon className="w-4 text-white" icon={faSearch}/>
             </Button>
-            <form onSubmit={(e) => {e.preventDefault(); handleSubmitButton()}} className={`${active ? "flex fixed top-0 left-0 bg-slate-800 w-full justify-center py-4" : "hidden"} lg:!static lg:!py-0 lg:flex lg:rounded-md`}>
+            <form onSubmit={(e) => {e.preventDefault(); handleSubmitButton()}} className={`${active ? "flex fixed top-0 left-0 bg-slate-800 max-w-full justify-center p-4" : "hidden"} lg:!static lg:!py-0 lg:flex lg:rounded-md`}>
                 <Input 
                     type="text"
                     name="search"
                     id="search"
                     placeholder="Cari komik kesukaan anda!"
-                    className="rounded-l-md rounded-r-none focus:outline-none"
+                    className="rounded-l-md rounded-r-none focus:outline-none w-full"
                     value={searchValue}
                     onChange={(e) => {setSearchValue(e.target.value)}}
                 />
@@ -48,7 +48,7 @@ function Search() {
                 </Button>
                 <Button 
                     type="button"
-                    className="!bg-red-500 lg:hidden ml-2"
+                    className="!bg-red-500 lg:hidden ml-2 w-10 h-10 flex items-center justify-center"
                     onClick={() => {setActive(false)}}
                 >
                     <FontAwesomeIcon className="w-4 text-white" icon={faXmark}/>
