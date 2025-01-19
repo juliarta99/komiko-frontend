@@ -21,7 +21,7 @@ export default async function ComicByGenreSection({ params, searchParams }: {par
             />
             <ComicList comics={comics.data.results} />
             {comics.data.pagination &&
-                <div className="flex items-center gap-2 mt-5">
+                <div className="flex items-center gap-2 mt-5 flex-wrap">
                     {comics.data.pagination?.map((pagination: {pageUrl: string, pageNumber: string}, i: number) => (
                         <Link key={i} href={`?page=${pagination.pageNumber}`}>
                             <Button children={pagination.pageNumber} />

@@ -9,7 +9,7 @@ interface ChapterProps {
 
 const ChapterList = ({chapters} : {chapters: ChapterProps[]}) => {
     return(
-        <div className="grid grid-cols-4 gap-5 mt-5 max-h-[80vh] overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5 max-h-[80vh] overflow-y-auto">
             {chapters.map((chapter, i) => (
                 <CardChapter
                     key={i}
