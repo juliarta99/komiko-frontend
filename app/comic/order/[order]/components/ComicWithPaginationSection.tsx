@@ -32,10 +32,10 @@ export default async function ComicWithPaginationSection({ params, searchParams 
             <ComicList comics={comics.data.results} />
             <div className="mt-5 flex justify-between">
                 <Link href={`${comics.data.prevPage}`}>
-                    <Button children="Prev" disabled={comics.data.prevPage ? false : true} />
+                    <Button disabled={comics.data.prevPage ? false : true}>Prev</Button>
                 </Link>
                 <Link href={`${comics.data.nextPage}`}>
-                    <Button children="Next" disabled={comics.data.nextPage ? false : true} />
+                    <Button disabled={comics.data.nextPage ? false : true}>Next</Button>
                 </Link>
             </div>
         </section>

@@ -16,7 +16,9 @@ const Header: React.FC<HeaderProps> = ({title, nameButton, linkButton}) => {
             />
             {nameButton &&
                 <Link href={linkButton || ""}>
-                    <Button children={nameButton} />
+                    <Button>
+                        {nameButton}
+                    </Button>
                 </Link>
             }
         </div>
