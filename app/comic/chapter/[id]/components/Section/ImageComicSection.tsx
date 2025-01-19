@@ -27,10 +27,9 @@ export default function ImageComicSection({images, chapter} : {images: string[],
                 <Image 
                     key={i}
                     src={val} 
-                    alt={`${chapter.title} - Page ${i+1} (Gagal Dimuat)`}
+                    alt={`Page ${i+1} - (Gagal Dimuat)!`}
                     decoding="async"
                     loading="lazy"
-                    priority={i === 0}
                     width={360}
                     height={0}
                     className="!w-full object-contain"
