@@ -17,7 +17,7 @@ export default function ImageComicSection({images, chapter} : {images: string[],
         if(updatedHistorys.length > maxHistory) {
             updatedHistorys.pop();
         }
-        localStorage.setItem("read_history", JSON.stringify(updatedHistorys));
+        localStorage.setItem("read_historys", JSON.stringify(updatedHistorys));
     }, [chapter]);
 
     return(
