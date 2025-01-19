@@ -4,7 +4,12 @@ import ComicWithPaginationSection from "./components/ComicWithPaginationSection"
 import BasicLayout from "../components/Layouts/BasicLayout";
 import ComicListLayout from "../components/Layouts/ComicListLayout";
 
-export default function ComicPage({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    searchParams?: searchParamsType 
+}
+export default function ComicPage({ searchParams }: Props) {
 
     return (
         <BasicLayout>

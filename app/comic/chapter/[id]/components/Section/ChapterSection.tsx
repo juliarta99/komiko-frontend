@@ -2,8 +2,13 @@ import { getComicResponse } from "@/app/libs/api";
 import Pagination from "../Pagination";
 import ImageComicSection from "./ImageComicSection";
 
-export default async function ChapterSection({params} : {params: { id: string }}) {
-    const { id } = params;
+export type paramsType = Promise<{ id: string }>;
+
+interface Props{
+    params: paramsType;
+}
+export default async function ChapterSection({params} : Props) {
+    const { id } = await params;
     const chapter = await getComicResponse(`/comic/chapter/${id}`);
     const chapterData = {
         title: chapter.data.title,

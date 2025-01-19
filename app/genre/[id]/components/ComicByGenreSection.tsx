@@ -4,9 +4,17 @@ import Header from "@/app/components/Header/HeaderSectionAnimeList";
 import { getComicResponse } from "@/app/libs/api";
 import Link from "next/link";
 
-export default async function ComicByGenreSection({ params, searchParams }: {params: { id: string }, searchParams?: { [key: string]: string | undefined } }) {
-    const {id} = params;
-    const page = searchParams?.page;
+export type paramsType = Promise<{ id: string }>;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    params: paramsType;
+    searchParams?: searchParamsType;
+}
+export default async function ComicByGenreSection({ params, searchParams }: Props) {
+    const {id} = await params;
+    const searchParamsObj = await searchParams;
+    const page = searchParamsObj?.page;
 
     const endpoint = page
         ? `/genre/${id}/page/${page}`

@@ -4,7 +4,14 @@ import { Suspense } from "react";
 import ComicByGenreSection from "./components/ComicByGenreSection";
 import ComicListLayout from "@/app/components/Layouts/ComicListLayout";
 
-export default function GenrePage({ params, searchParams }: { params: {id: string}, searchParams?: { [key: string]: string | undefined } }) {
+export type paramsType = Promise<{ id: string }>;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    params: paramsType;
+    searchParams?: searchParamsType;
+}
+export default function GenrePage({ params, searchParams }: Props) {
 
     return (
         <BasicLayout>

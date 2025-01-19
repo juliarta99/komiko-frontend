@@ -4,9 +4,15 @@ import ComicList from "../../components/ComicList";
 import Link from "next/link";
 import Button from "../../components/Button";
 
-export default async function ComicWithPaginationSection({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
-    const search = searchParams?.s;
-    const page = searchParams?.page;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    searchParams?: searchParamsType;
+}
+export default async function ComicWithPaginationSection({ searchParams }: Props) {
+    const searchParamsObj = await searchParams;
+    const search = searchParamsObj?.s;
+    const page = searchParamsObj?.page;
 
     const endpoint = search
         ? page
