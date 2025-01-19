@@ -5,7 +5,6 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ChapterList from "../ChapterList";
 import { useEffect, useState } from "react";
-import { useDebouncedCallback } from "use-debounce";
 
 interface ChapterProps {
     chapterSlug: string,
@@ -18,16 +17,16 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
     const [searchValue, setSearchValue] = useState("");
     const [filteredChapters, setFilteredChapters] = useState(chapters);
     
-    const debouncedSearch = useDebouncedCallback((value) => {
+    const getChapters = (value: string) => {
         const filtered = chapters.filter((chapter) =>
             chapter.chapterNum.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredChapters(filtered);
-    }, 500);
+    };
     
     useEffect(() => {
-        debouncedSearch(searchValue);
-    }, [searchValue, debouncedSearch]);
+        getChapters(searchValue);
+    }, [searchValue]);
 
     return(
         <div className="mt-8 p-5 rounded-lg dark:bg-gray-900">
@@ -44,7 +43,10 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
             />
-            <ChapterList chapters={filteredChapters} />
+            {filteredChapters.length > 0 ? 
+                <ChapterList chapters={filteredChapters} />
+                : <p className="mt-5 text-center font-semibold">Chapter Tidak Ditemukan!</p>
+            }
         </div>
     )
 }

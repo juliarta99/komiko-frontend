@@ -4,7 +4,7 @@ import ChapterSkeleton from "./components/Skeleton/ChapterSkeleton"
 
 export default function ChapterPage({params}: {params: {id: string}}) {
     return(
-        <div className="container mx-auto min-h-screen py-16">
+        <div className="px-0 lg:px-5 min-h-screen py-16">
             <Suspense fallback={<ChapterSkeleton />}>
                 <ChapterSection params={params} />
             </Suspense>

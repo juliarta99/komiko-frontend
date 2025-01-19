@@ -21,6 +21,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      gridTemplateColumns: {
+        '1fr-300px': "1fr 300px"
+      }
     },
   },
   plugins: [],

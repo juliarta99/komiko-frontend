@@ -1,7 +1,7 @@
 import { faCalendarAlt, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import LinkButton from "./LinkButton";
+import LinkButton from "@/app/components/LinkButton";
 
 interface ChapterProps {
     slug: string,
@@ -25,7 +25,7 @@ const CardChapter = ({slug, num, date, downloadLink} : ChapterProps) => {
                     <FontAwesomeIcon className="text-blue-500 text-lg" icon={faDownload} />
                 </Link>
             </div>
-            <LinkButton link={`/comic/chapter/${slug}`} name="Baca Sekarang" classNameButton="mt-3 !bg-gray-600 w-full" />
+            <LinkButton link={`/comic/chapter/${slug}`} name="Baca Sekarang" classNameButton="w-full mt-2" bgButton="!bg-gray-600" />
         </div>
     )
 }

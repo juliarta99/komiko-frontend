@@ -1,6 +1,6 @@
-import { faBook, faBrush, faCalendar, faClockRotateLeft, faPenFancy } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faBrush, faCalendar, faClockRotateLeft, faLayerGroup, faPenFancy } from "@fortawesome/free-solid-svg-icons";
 import PointDetail from "../PointDetail";
-import LinkButton from "../LinkButton";
+import LinkButton from "../../../../components/LinkButton";
 
 interface GenresProps{
     genreSlug: string,
@@ -23,7 +23,7 @@ const PointSection = ({released, author, artist, updatedOn, genres} : PointProps
             <PointDetail title="Ilustrator" icon={faBrush} desc={artist} />
             <PointDetail title="Rilisan Terakhir" icon={faClockRotateLeft} desc={updatedOn} />
             <div className="col-span-4">
-                <PointDetail title="Genre" icon={faCalendar} />
+                <PointDetail title="Genre" icon={faLayerGroup} />
                 <div className="flex flex-wrap gap-3 mt-2">
                     {genres.map((genre, i) => (
                         <LinkButton key={i} link={`/genre/${genre.genreSlug}`} name={genre.genreName} />

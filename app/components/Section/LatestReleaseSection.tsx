@@ -12,7 +12,7 @@ export default async function LatestReleaseSection() {
                 nameButton="Lihat Semua"
                 linkButton="/comic/order/update"
             />
-            <ComicList comics={comics.data.results.slice(0,8)} />
+            <ComicList comics={comics.data.results.slice(0,6)} />
         </section>
     )
 }

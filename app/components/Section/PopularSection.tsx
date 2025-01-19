@@ -12,7 +12,7 @@ export default async function PopularSection() {
                 nameButton="Lihat Semua"
                 linkButton="/comic/order/popular"
             />
-            <ComicList comics={comics.data.results.slice(0, 8)} />
+            <ComicList comics={comics.data.results.slice(0, 6)} />
         </section>
     )
 }
