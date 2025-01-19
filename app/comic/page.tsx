@@ -9,19 +9,28 @@ export type searchParamsType = Promise<{[key: string]: string | undefined }>;
 interface Props{
     searchParams?: searchParamsType 
 }
+
+
+export async function getStaticProps() {
+    const searchParams = {};
+    return {
+        props: {
+            searchParams,
+        },
+    };
+}
+
 export default function ComicPage({ searchParams }: Props) {
 
     return (
-        <Suspense fallback={<p>Loading..</p>}>
-            <BasicLayout>
-                <div className="container mx-auto min-h-screen py-16">
-                    <ComicListLayout>
-                        <Suspense fallback={<ComicsSectionSkeleton count={12} />}>
-                            <ComicWithPaginationSection searchParams={searchParams} />
-                        </Suspense>
-                    </ComicListLayout>
-                </div>
-            </BasicLayout>
-        </Suspense>
+        <BasicLayout>
+            <div className="container mx-auto min-h-screen py-16">
+                <ComicListLayout>
+                    <Suspense fallback={<ComicsSectionSkeleton count={12} />}>
+                        <ComicWithPaginationSection searchParams={searchParams} />
+                    </Suspense>
+                </ComicListLayout>
+            </div>
+        </BasicLayout>
     )
 }
