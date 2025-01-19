@@ -54,7 +54,7 @@ export default function Navbar({isFixed = true} : {isFixed?: boolean}) {
         <nav className={`shadow-lg ${isFixed ? "fixed" : "relative"} w-full top-0 bg-[#0a0a0a] z-[9999]`}>
             <div className="container mx-auto flex justify-between py-3 items-center">
                 <div className="flex items-center gap-2">
-                    <Image src="/logo_komiko_white.svg" alt="" className="h-8" />
+                    <Image src="/logo_komiko_white.svg" alt="" width={32} height={32} className="h-8" />
                     <Link href={"/"} className="font-bold text-xl">Komiko</Link>
                 </div>
                 <ul className={`${active ? "fixed flex flex-col w-full bg-slate-800 top-0 left-0 p-[1rem]" : "hidden"} md:!static md:!p-0 md:!flex-row md:flex md:!bg-transparent gap-4 md:justify-center md:items-center`}>

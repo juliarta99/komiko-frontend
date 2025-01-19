@@ -12,24 +12,16 @@ interface Props{
 
 export default async function ComicWithPaginationSection({ searchParams }: Props) {
     const searchParamsObj = await searchParams;
-    const search = searchParamsObj?.s;
-    const page = searchParamsObj?.page;
+    const search = searchParamsObj?.s || "";
+    const page = searchParamsObj?.page || "1";
 
     const endpoint = search
-        ? page
+        ? page !== "1"
             ? `/search/${search}/page/${page}`
             : `/search/${search}`
-        : page
-        ? `/comic?page=${page}`
-        : `/comic`;
+        : `/comic?page=${page}`;
 
-        let comics;
-        try {
-            comics = await getComicResponse(endpoint);
-        } catch (error) {
-            console.error("Error fetching comics:", error);
-            comics = { data: { results: [], pagination: null, prevPage: null, nextPage: null } };
-        }
+    const comics = await getComicResponse(endpoint);
 
     return (
         <section className="py-5">

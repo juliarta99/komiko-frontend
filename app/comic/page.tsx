@@ -16,7 +16,7 @@ export default function ComicPage({ searchParams }: Props) {
         <BasicLayout>
             <div className="container mx-auto min-h-screen py-16">
                 <ComicListLayout>
-                    <Suspense fallback={<ComicsSectionSkeleton count={12} />}>
+                    <Suspense fallback={<ComicsSectionSkeleton count={24} />}>
                         <ComicWithPaginationSection searchParams={searchParams} />
                     </Suspense>
                 </ComicListLayout>
