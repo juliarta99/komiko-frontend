@@ -1,0 +1,57 @@
+"use client"
+
+import Button from "@/app/components/Button";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { useState } from "react";
+
+interface Chapter{
+    title: string | null,
+    url: string | null
+}
+
+interface PaginationProps{
+    prevPage?: string | null,
+    nextPage?: string | null,
+    chapters?: Chapter[]
+}
+
+export default function Pagination({prevPage, nextPage, chapters} : PaginationProps) {
+    const getChapters = chapters?.filter((item) => item.url != null);
+    const [active, setActive] = useState(false);
+
+    return(
+        <>
+            <Button 
+                children={<FontAwesomeIcon className="w-4 text-white" icon={active ? faEye: faEyeSlash}/>}
+                className={`${active ? "bottom-[105px]" : "bottom-2"} !bg-green-500 !p-2 w-10 h-10 flex fixed items-center justify-center right-2 rounded-full`}
+                onClick={() => {setActive(!active)}}
+            />
+            <div className={`w-full ${active ? "fixed bottom-0 left-0 bg-slate-800 py-3" : ""}`}>
+                <div className={`max-w-xl ${!active && "mt-5"} grid grid-cols-3 gap-x-10 gap-y-2 mx-auto`}>
+                    <Link href={`${prevPage}`} className="block">
+                        <Button className="w-full" children="Prev" disabled={prevPage ? false : true} />
+                    </Link>
+                    {getChapters?.length || 0 > 0 ?
+                        <select name="chapters" id="chapters" className="w-full rounded-md">
+                            {chapters?.map((chapter, i) => (
+                                chapter.url != null && <option key={i} value={chapter.url}>{chapter.title}</option>
+                            ))}
+                        </select>
+                        : <div></div>
+                    }
+                    <Link href={`${nextPage}`} className="block">
+                        <Button className="w-full" children="Next" disabled={nextPage ? false : true} />
+                    </Link>
+                    <div className="col-span-3">
+                        <Link href="/" className="block">
+                            <Button className="w-full !bg-blue-500 !text-white" children="Kembali Ke Home" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div className={`${active ? "mt-28" : ""}`}></div>
+        </>
+    )
+}

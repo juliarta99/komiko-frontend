@@ -10,9 +10,9 @@ export default async function NewSeriesSection() {
             <Header
                 title="Seri Baru"
                 nameButton="Lihat Semua"
-                linkButton="ds"
+                linkButton="/comic/order/latest"
             />
-            <ComicList comics={comics.data.results.slice(0,8)} />
+            <ComicList comics={comics.data.results.slice(0,6)} />
         </section>
     )
 }
