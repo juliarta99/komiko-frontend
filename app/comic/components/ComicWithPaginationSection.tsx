@@ -23,7 +23,13 @@ export default async function ComicWithPaginationSection({ searchParams }: Props
         ? `/comic?page=${page}`
         : `/comic`;
 
-    const comics = await getComicResponse(endpoint);
+        let comics;
+        try {
+            comics = await getComicResponse(endpoint);
+        } catch (error) {
+            console.error("Error fetching comics:", error);
+            comics = { data: { results: [], pagination: null, prevPage: null, nextPage: null } };
+        }
 
     return (
         <section className="py-5">
