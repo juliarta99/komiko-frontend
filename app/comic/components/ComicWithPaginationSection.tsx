@@ -9,10 +9,11 @@ export type searchParamsType = Promise<{[key: string]: string | undefined }>;
 interface Props{
     searchParams?: searchParamsType;
 }
+
 export default async function ComicWithPaginationSection({ searchParams }: Props) {
-    const searchParamsObj = await searchParams || {};
-    const search = searchParamsObj.s;
-    const page = searchParamsObj.page;
+    const searchParamsObj = await searchParams;
+    const search = searchParamsObj?.s;
+    const page = searchParamsObj?.page;
 
     const endpoint = search
         ? page
