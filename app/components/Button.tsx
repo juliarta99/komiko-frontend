@@ -8,7 +8,7 @@ interface ButtonPorps extends React.ButtonHTMLAttributes<HTMLButtonElement>  {
 const Button: React.FC<ButtonPorps> = ({children, className, ...props}) => {
     return(
         <button 
-            className={`rounded-md py-2 px-5 dark:bg-white bg-black dark:text-black text-white text-xs font-medium disabled:bg-gray-500 ${className}`}
+            className={`rounded-md py-2 px-5 bg-white text-black text-xs font-medium disabled:bg-gray-500 ${className}`}
             {...props}
         >
             {children}

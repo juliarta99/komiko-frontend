@@ -33,7 +33,7 @@ export default function GenreWithSearchSection({genres} : {genres: Genre[]}) {
                 type="text"
                 name="search"
                 id="searchGenre"
-                className="w-full text-white focus:outline-none dark:bg-gray-700 my-3 text-xs"
+                className="w-full text-white focus:outline-none bg-gray-700 my-3 text-xs"
                 placeholder="Cari Genre Kesukaan Anda"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}

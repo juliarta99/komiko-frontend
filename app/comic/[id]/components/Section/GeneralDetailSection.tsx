@@ -56,13 +56,13 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                     alt={title}
                     className="object-cover aspect-[11/15] w-full max-w-[200px] bg-gray-500 rounded-md mx-auto" 
                 />
-                <Button disabled={true} className="disabled:bg-white mt-2 w-full max-w-[200px] mx-auto flex flex-col">
+                <Button disabled={true} className="disabled:bg-white mt-2 w-full max-w-[200px] mx-auto flex flex-col items-center">
                     <p>Status</p>
                     <p className="font-semibold">{status}</p>
                 </Button>
                 <div className="mt-2">
                     <Link href={firstChapter.slug}>
-                        <Button className="w-full max-w-[200px] mx-auto flex flex-col !bg-blue-500 !text-white">
+                        <Button className="w-full max-w-[200px] mx-auto flex flex-col items-center !bg-blue-500 !text-white">
                             <p>Baca Chapter Awal</p>
                             <h5 className="font-semibold uppercase">{firstChapter.title}</h5>
                         </Button>
@@ -70,7 +70,7 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                 </div>
                 <div className="mt-2">
                     <Link href={latestChapter.slug}>
-                        <Button className="w-full max-w-[200px] mx-auto flex flex-col !bg-blue-500 !text-white">
+                        <Button className="w-full max-w-[200px] mx-auto flex flex-col items-center !bg-blue-500 !text-white">
                             <p>Baca Chapter {status == "Tamat" ? "Terakhir" : "Terbaru"}</p>
                             <h5 className="font-semibold uppercase">{latestChapter.title}</h5>
                         </Button>

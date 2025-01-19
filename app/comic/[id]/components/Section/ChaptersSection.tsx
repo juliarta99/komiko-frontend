@@ -29,7 +29,7 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
     }, [searchValue]);
 
     return(
-        <div className="mt-8 p-5 rounded-lg dark:bg-gray-900">
+        <div className="mt-8 p-5 rounded-lg bg-gray-900">
             <div className="flex items-center gap-2 mb-3">
                 <FontAwesomeIcon icon={faList} />
                 <h4 className="font-semibold">Daftar Chapter</h4>
@@ -38,7 +38,7 @@ export default function ChaptersSection({chapters} : {chapters: ChapterProps[]})
                 type="text"
                 name="search"
                 id="searchChapter"
-                className="w-full text-white focus:outline-none dark:bg-gray-700"
+                className="w-full text-white focus:outline-none bg-gray-700"
                 placeholder="Cari Chapter; Contoh: 13"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}

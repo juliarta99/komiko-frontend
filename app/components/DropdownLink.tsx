@@ -22,7 +22,7 @@ export default function DropdownLink({name, options} : {name: string, options: o
                 <p>{name}</p>
                 <FontAwesomeIcon icon={active ? faChevronUp : faChevronDown} />
             </button>
-            <div className={`absolute z-10 w-max top-[140%] flex-col overflow-hidden rounded-md border-[1px] border-gray-700 dark:bg-[#0a0a0a] bg-white ${active ? "flex" : "hidden"}`}>
+            <div className={`absolute z-10 w-max top-[140%] flex-col overflow-hidden rounded-md border-[1px] border-gray-700 bg-[#0a0a0a] ${active ? "flex" : "hidden"}`}>
                 {options.map((option, i) => (
                     <Link 
                         key={i}

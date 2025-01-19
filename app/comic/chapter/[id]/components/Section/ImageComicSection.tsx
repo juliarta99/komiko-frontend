@@ -27,6 +27,7 @@ export default function ImageComicSection({images, chapter} : {images: string[],
                     key={i}
                     src={val} 
                     alt={chapter.title}
+                    decoding="async"
                     className="w-full object-contain"
                 />
             ))}

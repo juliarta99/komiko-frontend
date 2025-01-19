@@ -12,7 +12,7 @@ interface ChapterProps {
 
 const CardChapter = ({slug, num, date, downloadLink} : ChapterProps) => {
     return(
-        <div className="p-3 rounded-md dark:bg-gray-800">
+        <div className="p-3 rounded-md bg-gray-800">
             <div className="flex gap-3 items-center justify-between">
                 <Link href={slug}>
                     <h3 className="font-semibold">{num}</h3>

@@ -8,7 +8,7 @@ export default function PromoIklanSection() {
                 <br />
                 Buruan Pasang Iklanmu!
             </h1>
-            <LinkButton link="" name="Hubungi Admin" bgButton="!bg-green-500" classNameButton="w-full" />
+            <LinkButton link="mailto:free96722@gmail.com" name="Hubungi Admin" bgButton="!bg-green-500" classNameButton="w-full" />
         </div>
     )
 }
