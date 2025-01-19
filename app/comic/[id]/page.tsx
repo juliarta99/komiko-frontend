@@ -6,7 +6,12 @@ import LatestReleaseSection from "@/app/components/Section/LatestReleaseSection"
 import NewSeriesSection from "@/app/components/Section/NewSeriesSection";
 import BasicLayout from "@/app/components/Layouts/BasicLayout";
 
-export default function ComicDetailPage({params} : {params: { id: string }}) {
+export type paramsType = Promise<{ id: string }>;
+
+interface Props{
+    params: paramsType;
+}
+export default function ComicDetailPage({params} : Props) {
     return(
         <BasicLayout>
             <Suspense fallback={<DetailSkeleton />}>

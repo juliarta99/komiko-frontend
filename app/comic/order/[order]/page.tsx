@@ -4,7 +4,14 @@ import ComicsSectionSkeleton from "@/app/components/Skeleton/Section/ComicsSecti
 import BasicLayout from "@/app/components/Layouts/BasicLayout";
 import ComicListLayout from "@/app/components/Layouts/ComicListLayout";
 
-export default function PageOrderBy({ params, searchParams }: { params: { order: string }, searchParams?: { [key: string]: string | undefined } }) {
+export type paramsType = Promise<{ order: string }>;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    params: paramsType;
+    searchParams?: searchParamsType;
+}
+export default function PageOrderBy({ params, searchParams }: Props) {
 
     return (
         <BasicLayout>

@@ -3,8 +3,13 @@ import BackgroundDetail from "../BackgroundDetail";
 import ChaptersSection from "./ChaptersSection";
 import GeneralDetailSection from "./GeneralDetailSection";
 
-export default async function DetailSection({params} : {params: { id: string }}) {
-    const { id } = params;
+export type paramsType = Promise<{ id: string }>;
+
+interface Props{
+    params: paramsType;
+}
+export default async function DetailSection({params} : Props) {
+    const { id } = await params;
     const comic = await getComicResponse(`/comic/${id}`);
     
     return(

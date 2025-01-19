@@ -5,9 +5,18 @@ import { getComicResponse } from "@/app/libs/api";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function ComicWithPaginationSection({ params, searchParams }: {params: { order: string }; searchParams?: { [key: string]: string | undefined }; }) {
-    const {order} = params;
-    const page = searchParams?.page;
+export type paramsType = Promise<{ order: string }>;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
+
+interface Props{
+    params: paramsType;
+    searchParams?: searchParamsType;
+}
+
+export default async function ComicWithPaginationSection({ params, searchParams }: Props) {
+    const {order} = await params;
+    const searchParamsObj = await searchParams;
+    const page = searchParamsObj?.page;
 
     const allowedOrders = ["popular", "latest", "update", "ongoing"];
     if (!allowedOrders.includes(order)) {

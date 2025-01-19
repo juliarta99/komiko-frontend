@@ -5,9 +5,10 @@ import Button from "./Button";
 import Input from "./Input";
 import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import BasicSkeleton from "./Skeleton/BasicSkeleton";
 
-export default function SearchInput() {
+function Search() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [searchValue, setSearchValue] = useState(searchParams?.get('s') || "");
@@ -20,7 +21,7 @@ export default function SearchInput() {
         setActive(false);
     }
 
-    return (
+    return(
         <div>
             <Button 
                 className="!bg-blue-500 !p-2 w-10 h-10 flex justify-center items-center lg:hidden"
@@ -54,5 +55,13 @@ export default function SearchInput() {
                 </Button>
             </form>
         </div>
+    )
+}
+
+export default function SearchInput() {
+    return (
+        <Suspense fallback={<BasicSkeleton width="w-full" height="h-10" />}>
+            <Search/>
+        </Suspense>
     )
 }

@@ -4,12 +4,14 @@ import ComicsSectionSkeleton from "@/app/components/Skeleton/Section/ComicsSecti
 import BasicLayout from "@/app/components/Layouts/BasicLayout";
 import ComicListLayout from "@/app/components/Layouts/ComicListLayout";
 
-type PageProps =  { 
-    params: { category: string }; 
-    searchParams?: { [key: string]: string | undefined }; 
-}
+export type paramsType = Promise<{ category: string }>;
+export type searchParamsType = Promise<{[key: string]: string | undefined }>;
 
-export default function PageCategoryById({ params, searchParams }: PageProps) {
+interface Props{
+    params: paramsType;
+    searchParams?: searchParamsType;
+}
+export default function PageCategoryById({ params, searchParams }: Props) {
 
     return (
         <BasicLayout>
