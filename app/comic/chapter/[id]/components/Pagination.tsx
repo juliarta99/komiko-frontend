@@ -4,7 +4,8 @@ import Button from "@/app/components/Button";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Chapter{
     title: string | null,
@@ -14,12 +15,28 @@ interface Chapter{
 interface PaginationProps{
     prevPage?: string | null,
     nextPage?: string | null,
-    chapters?: Chapter[]
+    chapters?: Chapter[],
+    id: string
 }
 
-export default function Pagination({prevPage, nextPage, chapters} : PaginationProps) {
+export default function Pagination({prevPage, nextPage, chapters, id} : PaginationProps) {
+    const router = useRouter();
     const getChapters = chapters?.filter((item) => item.url != null);
     const [active, setActive] = useState(false);
+    const [nowChapter, setNowChapter] = useState(id);
+    
+    const handleChangeChapter = () => {
+        if (nowChapter) {
+            router.push(`/comic/chapter/${nowChapter}`);
+        }
+        setActive(false);
+    }
+
+    useEffect(() => {
+        if(active) {
+            handleChangeChapter();
+        }
+    }, [nowChapter]);
 
     return(
         <>
@@ -35,9 +52,21 @@ export default function Pagination({prevPage, nextPage, chapters} : PaginationPr
                         <Button className="w-full" disabled={prevPage ? false : true}>Prev</Button>
                     </Link>
                     {getChapters?.length || 0 > 0 ?
-                        <select name="chapters" id="chapters" className="w-full rounded-md">
+                        <select 
+                            name="chapters" 
+                            id="chapters" 
+                            className="w-full rounded-md text-black px-3 text-xs"
+                            onChange={(e) => setNowChapter(e.target.value)}
+                            value={nowChapter}
+                        >
                             {chapters?.map((chapter, i) => (
-                                chapter.url != null && <option key={i} value={chapter.url}>{chapter.title}</option>
+                                chapter.url != null && 
+                                <option 
+                                    key={i} 
+                                    value={chapter.url}
+                                >
+                                    {chapter.title}
+                                </option>
                             ))}
                         </select>
                         : <div></div>
