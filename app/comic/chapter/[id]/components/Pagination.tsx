@@ -47,15 +47,15 @@ export default function Pagination({prevPage, nextPage, chapters, id} : Paginati
                 <FontAwesomeIcon className="w-4 text-white" icon={active ? faEye: faEyeSlash}/>
             </Button>
             <div className={`w-full px-3 ${active ? "fixed bottom-0 left-0 bg-slate-800 py-3" : ""}`}>
-                <div className={`max-w-xl ${!active && "mt-5"} grid grid-cols-3 gap-x-10 gap-y-2 mx-auto`}>
-                    <Link href={`${prevPage}`} className="block">
+                <div className={`max-w-xl ${!active && "mt-5"} grid grid-cols-4 sm:grid-cols-3 gap-x-2 md:gap-x-10 gap-y-2 mx-auto`}>
+                    <Link href={`${prevPage}`} className="block col-span-1">
                         <Button className="w-full" disabled={prevPage ? false : true}>Prev</Button>
                     </Link>
                     {getChapters?.length || 0 > 0 ?
                         <select 
                             name="chapters" 
                             id="chapters" 
-                            className="w-full rounded-md text-black px-3 text-xs"
+                            className="w-full rounded-md text-black px-3 text-xs col-span-2 sm:col-span-1"
                             onChange={(e) => setNowChapter(e.target.value)}
                             value={nowChapter}
                         >
@@ -69,9 +69,9 @@ export default function Pagination({prevPage, nextPage, chapters, id} : Paginati
                                 </option>
                             ))}
                         </select>
-                        : <div></div>
+                        : <div className="col-span-2 sm:col-span-1"></div>
                     }
-                    <Link href={`${nextPage}`} className="block">
+                    <Link href={`${nextPage}`} className="block col-span-1">
                         <Button className="w-full" disabled={nextPage ? false : true}>Next</Button>
                     </Link>
                     <div className="col-span-3">
