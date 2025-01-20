@@ -31,7 +31,7 @@ export default function ImageComicSection({images, chapter} : {images: string[],
                     decoding="async"
                     loading="lazy"
                     width={360}
-                    height={0}
+                    height={360}
                     className="!w-full object-contain"
                 />
             ))}
