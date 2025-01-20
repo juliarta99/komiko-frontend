@@ -1,5 +1,5 @@
 export const getComicResponse = async(resource: string, query?: string) => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://komiko-backend.vercel.app/api/v1";
     if (!baseUrl) {
         throw new Error("Base URL is not defined!");
     }
