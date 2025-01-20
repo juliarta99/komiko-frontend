@@ -74,7 +74,7 @@ export default function Pagination({prevPage, nextPage, chapters, id} : Paginati
                     <Link href={`${nextPage}`} className="block col-span-1">
                         <Button className="w-full" disabled={nextPage ? false : true}>Next</Button>
                     </Link>
-                    <div className="col-span-3">
+                    <div className="col-span-4 sm:col-span-3">
                         <Link href="/" className="block">
                             <Button className="w-full !bg-blue-500 !text-white">Kembali Ke Home</Button>
                         </Link>
