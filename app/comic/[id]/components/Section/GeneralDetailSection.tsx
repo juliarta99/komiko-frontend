@@ -64,7 +64,7 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                     <p className="font-semibold">{status}</p>
                 </Button>
                 <div className="mt-2">
-                    <Link href={firstChapter.slug}>
+                    <Link href={`/comic/chapter/${firstChapter.slug}`}>
                         <Button className="w-full max-w-[200px] mx-auto flex flex-col items-center !bg-blue-500 !text-white">
                             <p>Baca Chapter Awal</p>
                             <h5 className="font-semibold uppercase">{firstChapter.title}</h5>
@@ -72,7 +72,7 @@ export default function GeneralDetailSection({title, synopsis, imageSrc, status,
                     </Link>
                 </div>
                 <div className="mt-2">
-                    <Link href={latestChapter.slug}>
+                    <Link href={`/comic/chapter/${latestChapter.slug}`}>
                         <Button className="w-full max-w-[200px] mx-auto flex flex-col items-center !bg-blue-500 !text-white">
                             <p>Baca Chapter {status == "Tamat" ? "Terakhir" : "Terbaru"}</p>
                             <h5 className="font-semibold uppercase">{latestChapter.title}</h5>

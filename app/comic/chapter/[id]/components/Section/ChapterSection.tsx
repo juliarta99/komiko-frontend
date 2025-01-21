@@ -16,7 +16,9 @@ export default async function ChapterSection({params} : Props) {
     }
     return(
         <>
-            <h1 className="text-center text-xl font-semibold">{chapter.data.title}</h1>
+            <div className="px-3">
+                <h1 className="text-center text-xl font-semibold">{chapter.data.title}</h1>
+            </div>
             <ImageComicSection images={chapter.data.images} chapter={chapterData} />
             <Pagination prevPage={chapter.data.prevChapter} id={id} nextPage={chapter.data.nextChapter} chapters={chapter.data.chapters} />
         </>
